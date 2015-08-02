@@ -1,0 +1,16 @@
+As a user, I want to create an account and log in so I can use the application and keep track of my potluck events.
+
+As a user, I want to view details of each event, including the items that other guests will bring, so I can prepare for the event.
+
+As a user, I want to update an event so I can let others know what item(s) I plan to bring.
+
+As a user, I want to edit the item that I entered if I change my mind about what I will bring.
+
+As a user, I want to remove the item that I entered if I can longer attend the event. I want to receive a warning before I delete an item.
+
+As a user, I want to create a new event and specify details so that I can share event information with others and learn what guests will bring.
+
+Optional:
+As a user, I want to delete an event from my account if I no longer wish to see it. I want to receive a warning before I delete an event.
+
+
