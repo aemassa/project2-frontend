@@ -2,6 +2,7 @@
 $(function() {
     "use strict";
     var sa = '//localhost:3000';
+    var myToken;
 
     $("#sign-up-button").on("click", function(e) {
         $.ajax(sa + "/users", {
@@ -48,6 +49,8 @@ $(function() {
         })
         .done(function(data, textStatus, jqXHR) {
             //$("#token").val(data.token);
+            myToken = data.token;
+            //simpleStorage.set('token', data.token);
             console.log(data.token);
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
@@ -58,24 +61,26 @@ $(function() {
     });
 
     $("#list").on("click", function(e) {
-        $.ajax(sa + "/users", {
+        $.ajax(sa + "/events", {
             dataType: "json",
             method: "GET",
             headers: {
-              Authorization: 'Token token=' + $('#token').val()
+              Authorization: 'Token token=' + myToken
             }
         })
         .done(function(data, textStatus, jqXHR) {
-            $("#result").val(JSON.stringify(data));
+            //$("#result").val(JSON.stringify(data));
+            console.log(JSON.stringify(data));
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
-            $("#result").val("login failed");
+            //$("#result").val("login failed");
+            console.log('Failed to list events.')
         })
         .always();
     });
 
     $("#create").on("click", function(e) {
-        $.ajax(sa + "/games", {
+        $.ajax(sa + "/events", {
             contentType: "application/json",
             processData: false,
             data: JSON.stringify({}),
