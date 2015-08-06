@@ -94,9 +94,118 @@
     </div> -->
     <br>
     <input id="list" type="button" value="List Events">
+    <br>
+
+    <!-- Create Events Button
+    <button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#createEventModal">
+      Create a New Event
+    </button> -->
+
+<!-- Create Events Modal
+    <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" aria-labelledby="createEventModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="createEventModalLabel">Create a New Event</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="inputEventDescription">Event Description (e.g. Laura's Party)</label>
+              <input class="form-control" id="inputEventDescription" placeholder="Enter description" type="description">
+            </div> -->
+            <!-- More Event Details
+            <div class="form-group">
+              <label for="inputEventDate">Event Date</label>
+              <input class="form-control" id="inputEventDate" placeholder="Enter date" type="text">
+            </div>
+            <div class="form-group">
+              <label for="inputEventTime">Event Time</label>
+              <input class="form-control" id="inputEventTime" placeholder="Enter time" type="text">
+            </div>
+            <div class="form-group">
+              <label for="inputEventLocation">Event Location (e.g. Laura's Apartment)</label>
+              <input class="form-control" id="inputEventLocation" placeholder="Enter location" type="description">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" id="create-event-button" class="btn btn-primary">Create Event</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Mock Front End Stuff -->
+      <h2>Event</h2>
+  <div>
+    <input id="event-id" placeholder="id">
+    <input id="event-description" placeholder="description">
+    <input id="event-date" placeholder="date">
+    <input id="event-time" placeholder="time">
+    <input id="event-location" placeholder="location">
+
+    <button id="event-create">Create</button>
+    <button id="event-update">Update</button>
+    <button id="event-destroy">Destroy</button>
+  </div>
+
+    <!--
+    <h2>Person</h2>
+  <div>
+    <input id="person-id" placeholder="id">
+    <input id="person-name" placeholder="name">
+    <input id="person-born" placeholder="born">
+    <input id="person-died" placeholder="died">
+
+    <button id="person-create">Create</button>
+    <button id="person-update">Update</button>
+    <button id="person-destroy">Destroy</button>
+  </div>
+
+      <h2>Role</h2>
+  <div>
+    <input id="role-id" placeholder="id">
+    <input id="role-name" placeholder="name">
+    <input id="role-movie-id" placeholder="movie-id">
+    <input id="role-person-id" placeholder="person-id">
+
+    <button id="role-create">Create</button>
+    <button id="role-update">Update</button>
+    <button id="role-destroy">Destroy</button>
+  </div>
+
+      <h2>Users</h2>
+  <div>
+    <input id="user-id" placeholder="id">
+    <input id="user-email" placeholder="email">
+    <input id="user-username" placeholder="username">
+    <input id="user-token" placeholder="token">
+    <input id="user-password-digest" placeholder="password digest">
+
+    <button id="user-create">Create</button>
+    <button id="user-update">Update</button>
+    <button id="user-destroy">Destroy</button>
+  </div>
+
+        <h2>Reviews</h2>
+  <div>
+    <input id="review-id" placeholder="id">
+    <input id="review-score" placeholder="score">
+    <input id="review-content" placeholder="content">
+    <input id="review-movie-id" placeholder="movie-id">
+    <input id="review-user-id" placeholder="user-id">
+
+    <button id="review-create">Create</button>
+    <button id="review-update">Update</button>
+    <button id="review-destroy">Destroy</button>
+  </div>
+  -->
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="bower_components/simpleStorage/simpleStorage.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
