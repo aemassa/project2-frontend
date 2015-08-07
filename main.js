@@ -61,6 +61,16 @@ $(function() {
         .always();
     });
 
+    // Additional Navbar links
+    $("#gatherTopLeft").click(function(){
+      $('#homepage').show();
+    });
+
+    $("#myEventsLinkTopRight").click(function(){
+      $('#homepage').hide();
+      $('#eventpage').show();
+    });
+
     // Event CRUD actions
 
     $("#list").on("click", function(e) {
