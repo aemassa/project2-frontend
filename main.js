@@ -2,7 +2,8 @@
 $(function() {
     "use strict";
     var sa = '//localhost:3000';
-    //var myToken;
+
+    // User Login/Sign-Up Requests
 
     $("#sign-up-button").on("click", function(e) {
         $.ajax(sa + "/users", {
@@ -22,6 +23,7 @@ $(function() {
             processData: false
         })
         .done(function(data, textStatus, jqXHR) {
+            $('#signUpLinkTopRight').hide();
             console.log(JSON.stringify(data));
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
@@ -47,6 +49,10 @@ $(function() {
         .done(function(data, textStatus, jqXHR) {
             //myToken = data.token;
             simpleStorage.set('token', data.token);
+            //$('#homepage').hide();
+            $('#myEventsLinkTopRight').removeClass("hidden");
+            $('#signUpLinkTopRight').hide();
+            //$('#eventpage').show();
             console.log(data.token);
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
@@ -54,6 +60,8 @@ $(function() {
         })
         .always();
     });
+
+    // Event CRUD actions
 
     $("#list").on("click", function(e) {
         $.ajax(sa + "/events", {
@@ -159,25 +167,6 @@ $(function() {
     .always();
   });
 
-    // $("#event-update").on('click', function(){
-    //   $.ajax({
-    //     url: '/events/' + $("#event-id").val(),
-    //     method: 'PATCH',
-    //     data: {
-    //       event: {
-    //         description: $("#event-description").val(),
-    //         date: $("#event-date").val(),
-    //         time: $("#event-time").val(),
-    //         location: $("#event-location").val()
-    //       }
-    //     }
-    //     }).done(function(data){
-    //       console.log("Updated event!");
-    //     }).fail(function(data){
-    //       console.error(data);
-    //     });
-    //   });
-
     $("#event-destroy").on("click", function(e) {
       $.ajax(sa + "/events/" + $("#event-id").val(), {
           contentType: "application/json",
@@ -198,90 +187,120 @@ $(function() {
     .always();
   });
 
+// RSVP actions
 
-//     $("#show").on("click", function(e) {
-//         $.ajax(sa + "/games/" + $('#id').val(), {
-//             dataType: "json",
-//             method: "GET",
-//             headers: {
-//               Authorization: 'Token token=' + $('#token').val()
-//             }
-//         })
-//         .done(function(data, textStatus, jqXHR) {
-//             $("#result").val(JSON.stringify(data));
-//         })
-//         .fail(function(jqXHR, textStatus, errorThrown) {
-//             $("#result").val("show failed");
-//         })
-//         .always();
-//     });
+    $("#list-all-rsvps").on("click", function(e) {
+        $.ajax(sa + "/rsvps", {
+            dataType: "json",
+            method: "GET",
+            headers: {
+              Authorization: 'Token token=' + simpleStorage.get('token')
+            }
+        })
+        .done(function(data, textStatus, jqXHR) {
+            console.log(JSON.stringify(data));
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            console.log('Failed to list RSVPs.')
+        })
+        .always();
+    });
 
-//     $("#join").on("click", function(e) {
-//       $.ajax(sa + "/games/" + $('#id').val(), {
-//           contentType: "application/json",
-//           processData: false,
-//           data: JSON.stringify({}),
-//           dataType: "json",
-//           method: "PATCH",
-//           headers: {
-//             Authorization: 'Token token=' + $('#token').val()
-//         }
-//     })
-//       .done(function(data, textStatus, jqXHR) {
-//           $("#result").val(JSON.stringify(data));
-//       })
-//       .fail(function(jqXHR, textStatus, errorThrown) {
-//           $("#result").val("join failed");
-//       })
-//       .always();
-//   });
+    $("#rsvp-show").on("click", function(e) {
+        $.ajax(sa + "/rsvps/" + $('#rsvp-id').val(), {
+            dataType: "json",
+            method: "GET",
+            headers: {
+              Authorization: 'Token token=' + simpleStorage.get('token')
+            }
+        })
+        .done(function(data, textStatus, jqXHR) {
+            console.log(JSON.stringify(data));
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            console.log('Failed to show RSVPs.')
+        })
+        .always();
+    });
 
-// $("#move").on("click", function(e) {
-//       $.ajax(sa + "/games/" + $('#id').val(), {
-//           contentType: "application/json",
-//           processData: false,
-//           data: JSON.stringify({
-//             game: {
-//                 cell: {
-//                 index: +$('#index').val(),
-//                 value: $('#value').val()
-//                 }
-//             }
-//           }),
-//           dataType: "json",
-//           method: "PATCH",
-//           headers: {
-//             Authorization: 'Token token=' + $('#token').val()
-//         }
-//     })
-//       .done(function(data, textStatus, jqXHR) {
-//           $("#result").val(JSON.stringify(data));
-//       })
-//       .fail(function(jqXHR, textStatus, errorThrown) {
-//           $("#result").val("move failed");
-//       })
-//       .always();
-//   });
+    $("#rsvp-create").on("click", function(e) {
+      $.ajax(sa + "/rsvps", {
+          contentType: "application/json",
+          processData: false,
+        data: JSON.stringify({
+          rsvp: {
+              confirmed: $("#rsvp-confirmed").val(),
+              item: $("#rsvp-item").val(),
+              user_id: $("#rsvp-user-id").val(),
+              event_id: $("#rsvp-event-id").val()
+          }
+        }),
+        dataType: "json",
+        method: "POST",
+        headers: {
+          Authorization: 'Token token=' + simpleStorage.get('token')
+        }
+    })
+    .done(function(data, textStatus, jqXHR) {
+      //$("#result").val(JSON.stringify(data));
+      console.log(JSON.stringify(data));
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
+      //$("#result").val("create failed");
+      console.log('Failed to RSVP.')
+    })
+    .always();
+  });
 
-//     $('#watch').on('click', function() {
-//         gameWatcher = resourceWatcher(sa + "/games/" + $('#id').val() + '/watch', {
-//             Authorization: 'Token token=' + $('#token').val()
-//         });
-//         gameWatcher.on('change', function(data){
-//             var parsedData = JSON.parse(data);
-//             // heroku routers report this as a 503
-//             // if (data.timeout) { //not an error
-//             // gameWatcher.close();
-//             // return console.warn(data.timeout);
-//             // }
-//             var gameData = parsedData.game;
-//             var cell = gameData.cell
-//             $('#index').val(cell.index);
-//             $('#value').val(cell.value);
-//         });
-//         gameWatcher.on('error', function(e){
-//             console.error('an error has occured with the stream', e);
-//         });
-//     });
+    $("#rsvp-update").on("click", function(e) {
+      $.ajax(sa + "/rsvps/" + $("#rsvp-id").val(), {
+          contentType: "application/json",
+          processData: false,
+        data: JSON.stringify({
+          rsvp: {
+              confirmed: $("#rsvp-confirmed").val(),
+              item: $("#rsvp-item").val(),
+              user_id: $("#rsvp-user-id").val(),
+              event_id: $("#rsvp-event-id").val()
+          }
+        }),
+        dataType: "json",
+        method: "PATCH",
+        headers: {
+          Authorization: 'Token token=' + simpleStorage.get('token')
+        }
+    })
+    .done(function(data, textStatus, jqXHR) {
+      //$("#result").val(JSON.stringify(data));
+      console.log('RSVP updated!')
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
+      //$("#result").val("create failed");
+      console.log('Failed to update RSVP.')
+    })
+    .always();
+  });
+
+    $("#rsvp-destroy").on("click", function(e) {
+      $.ajax(sa + "/rsvps/" + $("#rsvp-id").val(), {
+          contentType: "application/json",
+          processData: false,
+          method: "DELETE",
+          headers: {
+            Authorization: 'Token token=' + simpleStorage.get('token')
+        }
+    })
+    .done(function(data, textStatus, jqXHR) {
+      //$("#result").val(JSON.stringify(data));
+      console.log('RSVP destroyed!')
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
+      //$("#result").val("create failed");
+      console.log('Failed to destroy RSVP.')
+    })
+    .always();
+  });
 
 });
+
+

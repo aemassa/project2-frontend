@@ -19,7 +19,9 @@
         </div>
         <div>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#signUpModal" data-toggle="modal" data-target="#signUpModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#signUpModal" id="signUpLinkTopRight" data-toggle="modal" data-target="#signUpModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <!-- The My Events link only appears when a user is signed in -->
+            <li><a href="#" id="myEventsLinkTopRight" class="hidden"><span class="glyphicon glyphicon-cutlery"></span> My Events</a></li>
             <li><a href="#logInModal" data-toggle="modal" data-traget="logInModal"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
           </ul>
         </div>
@@ -87,124 +89,128 @@
       </div>
     </div>
 
-      <!-- Cover Image -->
-    <div class="container-fluid">
-      <div class="row">
-        <img src="gather.jpg" class="img-responsive">
-      </div>
-    </div>
-
-    <!-- Intro Content -->
-
-     <div class="container-fluid" id="intro">
-        <h2>About Gather</h2>
-        <p>Gather makes it easy to plan and attend dinner parties and potluck events. Simplify your next gathering. Create a new event, RSVP to an event, and let your friends know what you're bringing to the table! </p>
-        <br>
-      </div>
-    </div>
-
-        <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>Track RSVPs</h2>
-          <p>View event details, post your RSVP, and see who's coming to your event.</p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>View Potluck Contributions</h2>
-          <p>Who's bringing what? Eliminate the mystery by viewing items that others are bringing and posting your contribution.</p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>Celebrate!</h2>
-          <p>With the guest list and contributions settled, enjoy your event with friends and family!</p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-
-    <br>
-    <input id="list" type="button" value="List Events">
-    <br>
-
-    <!-- Create Events Button
-    <button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#createEventModal">
-      Create a New Event
-    </button> -->
-
-<!-- Create Events Modal
-    <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" aria-labelledby="createEventModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="createEventModalLabel">Create a New Event</h4>
-          </div>
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="inputEventDescription">Event Description (e.g. Laura's Party)</label>
-              <input class="form-control" id="inputEventDescription" placeholder="Enter description" type="description">
-            </div> -->
-            <!-- More Event Details
-            <div class="form-group">
-              <label for="inputEventDate">Event Date</label>
-              <input class="form-control" id="inputEventDate" placeholder="Enter date" type="text">
-            </div>
-            <div class="form-group">
-              <label for="inputEventTime">Event Time</label>
-              <input class="form-control" id="inputEventTime" placeholder="Enter time" type="text">
-            </div>
-            <div class="form-group">
-              <label for="inputEventLocation">Event Location (e.g. Laura's Apartment)</label>
-              <input class="form-control" id="inputEventLocation" placeholder="Enter location" type="description">
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" id="create-event-button" class="btn btn-primary">Create Event</button>
-          </div>
+    <!-- Home Page Content-->
+  <div id="homepage">
+    <!-- Cover Image -->
+      <div class="container-fluid">
+        <div class="row">
+          <img src="gather.jpg" class="img-responsive">
         </div>
       </div>
-    </div> -->
 
-    <!-- Mock Front End Stuff -->
-      <h2>Event</h2>
-  <div>
-    <input id="event-id" placeholder="id">
-    <input id="event-description" placeholder="description">
-    <input id="event-date" placeholder="date">
-    <input id="event-time" placeholder="time">
-    <input id="event-location" placeholder="location">
+      <!-- Intro Content -->
 
-    <button id="event-create">Create</button>
-    <button id="event-update">Update</button>
-    <button id="event-destroy">Destroy</button>
+       <div class="container-fluid" id="intro">
+          <h2>About Gather</h2>
+          <p>Gather makes it easy to plan and attend dinner parties and potluck events. Simplify your next gathering. Create a new event, RSVP to an event, and let your friends know what you're bringing to the table! </p>
+          <br>
+      </div>
+
+
+          <!-- Wrap the rest of the page in another container to center all the content. -->
+
+      <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="col-lg-4">
+            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            <h2>Track RSVPs</h2>
+            <p>View event details, post your RSVP, and see who's coming to your event.</p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            <h2>View Potluck Contributions</h2>
+            <p>Who's bringing what? Eliminate the mystery by viewing items that others are bringing and posting your contribution.</p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            <h2>Celebrate!</h2>
+            <p>With the guest list and contributions settled, enjoy your event with friends and family!</p>
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+      <br>
+      <input id="list" type="button" value="List Events">
+      <br>
+
+      <!-- Create Events Button
+      <button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#createEventModal">
+        Create a New Event
+      </button> -->
+
+  <!-- Create Events Modal
+      <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" aria-labelledby="createEventModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="createEventModalLabel">Create a New Event</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="inputEventDescription">Event Description (e.g. Laura's Party)</label>
+                <input class="form-control" id="inputEventDescription" placeholder="Enter description" type="description">
+              </div> -->
+              <!-- More Event Details
+              <div class="form-group">
+                <label for="inputEventDate">Event Date</label>
+                <input class="form-control" id="inputEventDate" placeholder="Enter date" type="text">
+              </div>
+              <div class="form-group">
+                <label for="inputEventTime">Event Time</label>
+                <input class="form-control" id="inputEventTime" placeholder="Enter time" type="text">
+              </div>
+              <div class="form-group">
+                <label for="inputEventLocation">Event Location (e.g. Laura's Apartment)</label>
+                <input class="form-control" id="inputEventLocation" placeholder="Enter location" type="description">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" id="create-event-button" class="btn btn-primary">Create Event</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Mock Front End Stuff -->
+        <h2>Event</h2>
+    <div>
+      <input id="event-id" placeholder="id">
+      <input id="event-description" placeholder="description">
+      <input id="event-date" placeholder="date">
+      <input id="event-time" placeholder="time">
+      <input id="event-location" placeholder="location">
+
+      <button id="event-create">Create</button>
+      <button id="event-update">Update</button>
+      <button id="event-destroy">Destroy</button>
+    </div>
+
+      <br>
+      <input id="list-all-rsvps" type="button" value="List All RSVPs">
+      <br>
+
+      <h2>RSVP</h2>
+    <div>
+      <input id="rsvp-id" placeholder="id">
+      <input id="rsvp-confirmed" placeholder="confirmed">
+      <input id="rsvp-item" placeholder="item">
+      <input id="rsvp-user-id" placeholder="user id">
+      <input id="rsvp-event-id" placeholder="event id">
+
+      <button id="rsvp-create">Create</button>
+      <button id="rsvp-update">Update</button>
+      <button id="rsvp-destroy">Destroy</button>
+      <button id="rsvp-show">Show RSVPs</button>
+    </div>
   </div>
+  <!-- End of homepage code -->
 
-    <br>
-    <input id="list-all-rsvps" type="button" value="List All RSVPs">
-    <br>
-
-    <h2>RSVP</h2>
-  <div>
-    <input id="rsvp-id" placeholder="id">
-    <input id="rsvp-confirmed" placeholder="confirmed">
-    <input id="rsvp-item" placeholder="item">
-    <input id="rsvp-user-id" placeholder="user id">
-    <input id="rsvp-event-id" placeholder="event id">
-
-    <button id="rsvp-create">Create</button>
-    <button id="rsvp-update">Update</button>
-    <button id="rsvp-destroy">Destroy</button>
-    <button id="rsvp-show">Show RSVPs</button>
-  </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="bower_components/simpleStorage/simpleStorage.js"></script>
-    <script src="main.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <script src="bower_components/simpleStorage/simpleStorage.js"></script>
+      <script src="main.js"></script>
   </body>
 </html>
