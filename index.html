@@ -130,14 +130,52 @@
           </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
 
+      <!-- Mock Front End Stuff
       <br>
       <input id="list" type="button" value="List Events">
       <br>
+        <h2>Event</h2>
+    <div>
+      <input id="event-id" placeholder="id">
+      <input id="event-description" placeholder="description">
+      <input id="event-date" placeholder="date">
+      <input id="event-time" placeholder="time">
+      <input id="event-location" placeholder="location">
 
-      <!-- Create Events Button
-      <button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#createEventModal">
-        Create a New Event
-      </button> -->
+      <button id="event-create">Create</button>
+      <button id="event-update">Update</button>
+      <button id="event-destroy">Destroy</button>
+    </div>
+
+      <br>
+      <input id="list-all-rsvps" type="button" value="List All RSVPs">
+      <br>
+
+      <h2>RSVP</h2>
+    <div>
+      <input id="rsvp-id" placeholder="id">
+      <input id="rsvp-confirmed" placeholder="confirmed">
+      <input id="rsvp-item" placeholder="item">
+      <input id="rsvp-user-id" placeholder="user id">
+      <input id="rsvp-event-id" placeholder="event id">
+
+      <button id="rsvp-create">Create</button>
+      <button id="rsvp-update">Update</button>
+      <button id="rsvp-destroy">Destroy</button>
+      <button id="rsvp-show">Show RSVPs</button>
+    </div> -->
+  </div>
+</div>
+  <!-- End of homepage -->
+
+
+  <!-- My Events page -->
+    <div id="eventpage" class="hidden">
+      <div class="container-fluid">
+        <h1>My Events</h1>
+        <br>
+      <!-- Create Events Button-->
+      <button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#createEventModal">Create a New Event</button>
 
   <!-- Create Events Modal
       <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" aria-labelledby="createEventModalLabel">
@@ -151,8 +189,7 @@
               <div class="form-group">
                 <label for="inputEventDescription">Event Description (e.g. Laura's Party)</label>
                 <input class="form-control" id="inputEventDescription" placeholder="Enter description" type="description">
-              </div> -->
-              <!-- More Event Details
+              </div>
               <div class="form-group">
                 <label for="inputEventDate">Event Date</label>
                 <input class="form-control" id="inputEventDate" placeholder="Enter date" type="text">
@@ -168,13 +205,27 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" id="create-event-button" class="btn btn-primary">Create Event</button>
+              <button type="button" id="create-event-button" class="btn btn-primary" data-dismiss="modal">Create Event</button>
             </div>
           </div>
         </div>
       </div> -->
 
-      <!-- Mock Front End Stuff -->
+      <br>
+      <br>
+      <button type="button" id="list-event-button" class="btn btn-info btn-lg">View My Events</button>
+      <br>
+      <br>
+      <div id="events-list"></div>
+      <!-- Edit Event Button
+        <button type="button" class="btn btn-warning btn-lg"  data-toggle="modal" data-target="#editEventModal">Edit an Event</button>
+      <br>
+      <br> -->
+      <input id="list" type="button" value="List Events">
+      <br>
+
+
+
         <h2>Event</h2>
     <div>
       <input id="event-id" placeholder="id">
@@ -205,12 +256,73 @@
       <button id="rsvp-destroy">Destroy</button>
       <button id="rsvp-show">Show RSVPs</button>
     </div>
+
   </div>
-  <!-- End of homepage code -->
+  </div>
+
+  <script type="text/x-handlebars-template" id="events-list-template">
+    {{#each events}}
+      <div class="event" data-id={{id}}>
+      // var id = $(this).closest('.event').data('id')
+      // $.ajax({ url: 'http://loclahost:3000/events/' + id + '/rsvps', method: 'POST' })
+        <h3>{{description}}</h3>
+        <p>Created by: {{created_by.name}} | Date: {{date}} | Time: {{time}} | Location: {{location}}</p>
+        <ul>
+          {{#each rsvps}}
+            <li class="rsvp" data-id={{id}}>
+            {{#if confirmed }}
+              {{profile_of_rsvp.name}} is bringing {{item}} <input type="checkbox" checked="true"/>
+            {{else}}
+              {{profile_of_rsvp.name}} is bringing {{item}} <input type="checkbox"/>
+            {{/if}}
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    {{/each}}
+  </script>
+
+
+    <!-- End of My Events page -->
+
+    <!-- Create Events Modal -->
+      <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" aria-labelledby="createEventModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="createEventModalLabel">Create a New Event</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="inputEventDescription">Event Description (e.g. Laura's Party)</label>
+                <input class="form-control" id="inputEventDescription" placeholder="Enter description" type="description">
+              </div>
+              <div class="form-group">
+                <label for="inputEventDate">Event Date</label>
+                <input class="form-control" id="inputEventDate" placeholder="Enter date" type="text">
+              </div>
+              <div class="form-group">
+                <label for="inputEventTime">Event Time</label>
+                <input class="form-control" id="inputEventTime" placeholder="Enter time" type="text">
+              </div>
+              <div class="form-group">
+                <label for="inputEventLocation">Event Location (e.g. Laura's Apartment)</label>
+                <input class="form-control" id="inputEventLocation" placeholder="Enter location" type="description">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" id="create-event-button" class="btn btn-primary" data-dismiss="modal">Create Event</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
       <script src="bower_components/simpleStorage/simpleStorage.js"></script>
+      <script src="bower_components/handlebars/handlebars.js"></script>
       <script src="main.js"></script>
   </body>
 </html>

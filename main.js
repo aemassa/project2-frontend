@@ -27,6 +27,7 @@ $(function() {
             console.log(JSON.stringify(data));
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
+            alert("Registration failed. Please try again.")
             console.log('Registration failed.');
         })
         .always();
@@ -56,6 +57,7 @@ $(function() {
             console.log(data.token);
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
+            alert("Login failed. Please try again.")
             console.log('Login failed.');
         })
         .always();
@@ -68,7 +70,7 @@ $(function() {
 
     $("#myEventsLinkTopRight").click(function(){
       $('#homepage').hide();
-      $('#eventpage').show();
+      $('#eventpage').removeClass("hidden");
     });
 
     // Event CRUD actions
@@ -83,8 +85,12 @@ $(function() {
         })
         .done(function(data, textStatus, jqXHR) {
             console.log(JSON.stringify(data));
+            var templatingFunction = Handlebars.compile($('#events-list-template').html());
+            var html = templatingFunction({events: data.events });
+            $('#events-list').html(html);
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
+            alert("Failed to list events.")
             console.log('Failed to list events.')
         })
         .always();
@@ -119,16 +125,16 @@ $(function() {
     //     .always();
     // });
 
-    $("#event-create").on("click", function(e) {
+    $("#create-event-button").on("click", function(e) {
       $.ajax(sa + "/events", {
           contentType: "application/json",
           processData: false,
         data: JSON.stringify({
           event: {
-              description: $("#event-description").val(),
-              date: $("#event-date").val(),
-              time: $("#event-time").val(),
-              location: $("#event-location").val(),
+              description: $("#inputEventDescription").val(),
+              date: $("#inputEventDate").val(),
+              time: $("#inputEventTime").val(),
+              location: $("#inputEventLocation").val(),
           }
         }),
         dataType: "json",
@@ -143,6 +149,7 @@ $(function() {
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
       //$("#result").val("create failed");
+      alert("Failed to create event. Please try again.")
       console.log('Failed to create event.')
     })
     .always();
