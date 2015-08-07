@@ -12,7 +12,7 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="#">Gather</a>
@@ -53,7 +53,7 @@
           </div>
           <div class="modal-footer">
             <a href="#" data-dismiss="modal" class="btn">Close</a>
-            <a href="#" id="sign-up-button"class="btn btn-primary">Sign Up</a>
+            <a href="#" id="sign-up-button" data-dismiss="modal" class="btn btn-primary">Sign Up</a>
           </div>
         </div>
       </div>
@@ -81,17 +81,51 @@
           </div>
           <div class="modal-footer">
             <a href="#" data-dismiss="modal" class="btn">Close</a>
-            <a href="#" id="log-in-button" class="btn btn-primary">Log In</a>
+            <a href="#" id="log-in-button" data-dismiss="modal" class="btn btn-primary">Log In</a>
           </div>
         </div>
       </div>
     </div>
-      <!-- Cover Image
+
+      <!-- Cover Image -->
     <div class="container-fluid">
       <div class="row">
-        <img src="#" class="img-responsive">
+        <img src="gather.jpg" class="img-responsive">
       </div>
-    </div> -->
+    </div>
+
+    <!-- Intro Content -->
+
+     <div class="container-fluid" id="intro">
+        <h2>About Gather</h2>
+        <p>Gather makes it easy to plan and attend dinner parties and potluck events. Simplify your next gathering. Create a new event, RSVP to an event, and let your friends know what you're bringing to the table! </p>
+        <br>
+      </div>
+    </div>
+
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <h2>Track RSVPs</h2>
+          <p>View event details, post your RSVP, and see who's coming to your event.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <h2>View Potluck Contributions</h2>
+          <p>Who's bringing what? Eliminate the mystery by viewing items that others are bringing and posting your contribution.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <h2>Celebrate!</h2>
+          <p>With the guest list and contributions settled, enjoy your event with friends and family!</p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
     <br>
     <input id="list" type="button" value="List Events">
     <br>
@@ -150,58 +184,23 @@
     <button id="event-destroy">Destroy</button>
   </div>
 
-    <!--
-    <h2>Person</h2>
+    <br>
+    <input id="list-all-rsvps" type="button" value="List All RSVPs">
+    <br>
+
+    <h2>RSVP</h2>
   <div>
-    <input id="person-id" placeholder="id">
-    <input id="person-name" placeholder="name">
-    <input id="person-born" placeholder="born">
-    <input id="person-died" placeholder="died">
+    <input id="rsvp-id" placeholder="id">
+    <input id="rsvp-confirmed" placeholder="confirmed">
+    <input id="rsvp-item" placeholder="item">
+    <input id="rsvp-user-id" placeholder="user id">
+    <input id="rsvp-event-id" placeholder="event id">
 
-    <button id="person-create">Create</button>
-    <button id="person-update">Update</button>
-    <button id="person-destroy">Destroy</button>
+    <button id="rsvp-create">Create</button>
+    <button id="rsvp-update">Update</button>
+    <button id="rsvp-destroy">Destroy</button>
+    <button id="rsvp-show">Show RSVPs</button>
   </div>
-
-      <h2>Role</h2>
-  <div>
-    <input id="role-id" placeholder="id">
-    <input id="role-name" placeholder="name">
-    <input id="role-movie-id" placeholder="movie-id">
-    <input id="role-person-id" placeholder="person-id">
-
-    <button id="role-create">Create</button>
-    <button id="role-update">Update</button>
-    <button id="role-destroy">Destroy</button>
-  </div>
-
-      <h2>Users</h2>
-  <div>
-    <input id="user-id" placeholder="id">
-    <input id="user-email" placeholder="email">
-    <input id="user-username" placeholder="username">
-    <input id="user-token" placeholder="token">
-    <input id="user-password-digest" placeholder="password digest">
-
-    <button id="user-create">Create</button>
-    <button id="user-update">Update</button>
-    <button id="user-destroy">Destroy</button>
-  </div>
-
-        <h2>Reviews</h2>
-  <div>
-    <input id="review-id" placeholder="id">
-    <input id="review-score" placeholder="score">
-    <input id="review-content" placeholder="content">
-    <input id="review-movie-id" placeholder="movie-id">
-    <input id="review-user-id" placeholder="user-id">
-
-    <button id="review-create">Create</button>
-    <button id="review-update">Update</button>
-    <button id="review-destroy">Destroy</button>
-  </div>
-  -->
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
