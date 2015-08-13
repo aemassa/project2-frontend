@@ -15,9 +15,14 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
           <a class="navbar-brand" id="gatherTopLeft" href="#">Gather</a>
         </div>
-        <div>
+        <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#signUpModal" id="signUpLinkTopRight" data-toggle="modal" data-target="#signUpModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <!-- The My Events link only appears when a user is signed in -->
@@ -78,7 +83,6 @@
               <label for="exampleInputPassword2">Password</label>
               <input class="form-control" id="exampleInputPassword2" placeholder="Enter password" type="password">
             </div>
-            <p class="text-right"><a href="#">Forgot password?</a></p>
             <p class="text-right">Don't have an account?<a href="#"> Sign up.</a></p>
           </div>
           <div class="modal-footer">
@@ -221,7 +225,7 @@
         <button type="button" class="btn btn-warning btn-lg"  data-toggle="modal" data-target="#editEventModal">Edit an Event</button>
       <br>
       <br> -->
-      <input id="list" type="button" value="List Events">
+      <br>
       <br>
 
 
@@ -234,7 +238,6 @@
       <input id="event-time" placeholder="time">
       <input id="event-location" placeholder="location">
 
-      <button id="event-create">Create</button>
       <button id="event-update">Update</button>
       <button id="event-destroy">Destroy</button>
     </div>
@@ -263,8 +266,6 @@
   <script type="text/x-handlebars-template" id="events-list-template">
     {{#each events}}
       <div class="event" data-id={{id}}>
-      // var id = $(this).closest('.event').data('id')
-      // $.ajax({ url: 'http://loclahost:3000/events/' + id + '/rsvps', method: 'POST' })
         <h3>{{description}}</h3>
         <p>Created by: {{created_by.name}} | Date: {{date}} | Time: {{time}} | Location: {{location}}</p>
         <ul>

@@ -66,6 +66,7 @@ $(function() {
     // Additional Navbar links
     $("#gatherTopLeft").click(function(){
       $('#homepage').show();
+      $('#eventpage').addClass("hidden")
     });
 
     $("#myEventsLinkTopRight").click(function(){
@@ -75,7 +76,7 @@ $(function() {
 
     // Event CRUD actions
 
-    $("#list").on("click", function(e) {
+    $("#list-event-button").on("click", function(e) {
         $.ajax(sa + "/events", {
             dataType: "json",
             method: "GET",
