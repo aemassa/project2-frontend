@@ -133,12 +133,26 @@
             <p>With the guest list and contributions settled, enjoy your event with friends and family!</p>
           </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
+  </div>
+</div>
+  <!-- End of homepage -->
 
-      <!-- Mock Front End Stuff
+
+  <!-- My Events page -->
+    <div id="eventpage" class="hidden">
+      <div class="container-fluid">
+        <h1>My Events</h1>
+        <br>
+        <br>
+      <!-- Create/List Events Buttons-->
+      <div id="event-buttons">
+      <button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#createEventModal">Create a New Event</button>
+      <button type="button" id="list-event-button" class="btn btn-info btn-lg">View My Events</button>
       <br>
-      <input id="list" type="button" value="List Events">
       <br>
-        <h2>Event</h2>
+      </div>
+      <div id="events-list"></div>
+<!--         <h2>Event</h2>
     <div>
       <input id="event-id" placeholder="id">
       <input id="event-description" placeholder="description">
@@ -146,7 +160,6 @@
       <input id="event-time" placeholder="time">
       <input id="event-location" placeholder="location">
 
-      <button id="event-create">Create</button>
       <button id="event-update">Update</button>
       <button id="event-destroy">Destroy</button>
     </div>
@@ -168,63 +181,6 @@
       <button id="rsvp-destroy">Destroy</button>
       <button id="rsvp-show">Show RSVPs</button>
     </div> -->
-  </div>
-</div>
-  <!-- End of homepage -->
-
-
-  <!-- My Events page -->
-    <div id="eventpage" class="hidden">
-      <div class="container-fluid">
-        <h1>My Events</h1>
-        <br>
-        <br>
-      <!-- Create/List Events Buttons-->
-      <div id="event-buttons">
-      <button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#createEventModal">Create a New Event</button>
-      <button type="button" id="list-event-button" class="btn btn-info btn-lg">View My Events</button>
-      <br>
-      <br>
-      </div>
-      <div id="events-list"></div>
-      <!-- Edit Event Button
-        <button type="button" class="btn btn-warning btn-lg"  data-toggle="modal" data-target="#editEventModal">Edit an Event</button>
-      <br>
-      <br> -->
-      <br>
-      <br>
-
-
-
-        <h2>Event</h2>
-    <div>
-      <input id="event-id" placeholder="id">
-      <input id="event-description" placeholder="description">
-      <input id="event-date" placeholder="date">
-      <input id="event-time" placeholder="time">
-      <input id="event-location" placeholder="location">
-
-      <button id="event-update">Update</button>
-      <button id="event-destroy">Destroy</button>
-    </div>
-
-      <br>
-      <input id="list-all-rsvps" type="button" value="List All RSVPs">
-      <br>
-
-      <h2>RSVP</h2>
-    <div>
-      <input id="rsvp-id" placeholder="id">
-      <input id="rsvp-confirmed" placeholder="confirmed">
-      <input id="rsvp-item" placeholder="item">
-      <input id="rsvp-user-id" placeholder="user id">
-      <input id="rsvp-event-id" placeholder="event id">
-
-      <button id="rsvp-create">Create</button>
-      <button id="rsvp-update">Update</button>
-      <button id="rsvp-destroy">Destroy</button>
-      <button id="rsvp-show">Show RSVPs</button>
-    </div>
 
   </div>
   </div>
@@ -244,12 +200,13 @@
               {{profile_of_rsvp.name}} is bringing {{item}} <input type="checkbox"/>
             {{/if}}
             {{#if belongs_to_current_user}}
-              <button type="button" class="btn btn-warning btn-xs">Edit RSVP</button>
+              <button type="button" class="btn btn-warning btn-xs" data-id={{id}} data-toggle="modal" data-target="#updateRsvpModal">Edit RSVP</button>
+              <button type="button" class="btn btn-danger btn-xs" data-id={{id}} data-toggle="modal" data-target="#deleteRsvpModal">Delete RSVP</button>
             {{/if}}
             </li>
           {{/each}}
         </ul>
-          <button type="button" class="btn btn-success btn-sm"  data-id={{id}} data-toggle="modal" data-target="#createRsvpModal">RSVP</button>
+          <button type="button" class="btn btn-success btn-sm" id="rsvp-button" data-id={{id}} data-toggle="modal" data-target="#createRsvpModal">RSVP</button>
       </div>
     {{/each}}
   </script>
@@ -313,6 +270,50 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               <button type="button" id="create-rsvp-button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Update RSVP Modal -->
+      <div class="modal fade" id="updateRsvpModal" tabindex="-1" role="dialog" aria-labelledby="updateRsvpModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="updateRsvpModalLabel">Edit RSVP</h4>
+            </div>
+            <div class="modal-body">
+              <label class="radio-inline">
+                <input type="radio" name="optradio" id="confirmed-true" value="true">I'm coming!</label>
+              <label class="radio-inline">
+                <input type="radio" name="optradio" id="confirmed-false" value="false">I can't make it.</label>
+              <br>
+              <br>
+              <div class="form-group">
+                <label for="updateRsvpItem">I'm bringing...</label>
+                <input class="form-control" id="updateRsvpItem" placeholder="Enter the food, drink, or other item you'll bring" type="text">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" id="update-rsvp-button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Delete RSVP Modal -->
+      <div class="modal fade" id="deleteRsvpModal" tabindex="-1" role="dialog" aria-labelledby="deleteRsvpModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="deleteRsvpModalLabel">Are you sure?</h4>
+            </div>
+            <div class="modal-body">
+              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+              <button type="button" id="delete-rsvp-button" class="btn btn-danger" data-dismiss="modal">Yes, delete my RSVP</button>
             </div>
           </div>
         </div>
