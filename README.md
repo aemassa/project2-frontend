@@ -31,12 +31,12 @@ App:
 - PostgreSQL
 
 ## Next Steps
-- Implement event and RSVP update and delete actions.
+- Implement update and delete actions for events.
 - Make an "invitations" table and update functionality so that ultimately, users can only see and update events that they have either created or been invited to.
 - Style the front end, especially the My Events page.
 - Show a separate page for each of the user's events.
 - Enable users to log out of the application.
-- Refactor code!
+- Clean up/refactor code!
 
 ## Planning Documents
 
