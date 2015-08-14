@@ -3,11 +3,15 @@
 Gather is an app that helps uses plan and attend dinner parties and potluck events. Users can create and RSVP to events, indicate what item(s) they will bring, and see other users' RSVPs and potluck items.
 
 Link to front end:
+
 Repo: https://github.com/aemassa/project2-frontend
+
 App:
 
 Link to back end:
+
 Repo: https://github.com/aemassa/project2-api
+
 App:
 
 ## Technologies Used
