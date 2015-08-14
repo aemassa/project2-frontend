@@ -178,48 +178,14 @@
       <div class="container-fluid">
         <h1>My Events</h1>
         <br>
-      <!-- Create Events Button-->
+        <br>
+      <!-- Create/List Events Buttons-->
+      <div id="event-buttons">
       <button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#createEventModal">Create a New Event</button>
-
-  <!-- Create Events Modal
-      <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" aria-labelledby="createEventModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="createEventModalLabel">Create a New Event</h4>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <label for="inputEventDescription">Event Description (e.g. Laura's Party)</label>
-                <input class="form-control" id="inputEventDescription" placeholder="Enter description" type="description">
-              </div>
-              <div class="form-group">
-                <label for="inputEventDate">Event Date</label>
-                <input class="form-control" id="inputEventDate" placeholder="Enter date" type="text">
-              </div>
-              <div class="form-group">
-                <label for="inputEventTime">Event Time</label>
-                <input class="form-control" id="inputEventTime" placeholder="Enter time" type="text">
-              </div>
-              <div class="form-group">
-                <label for="inputEventLocation">Event Location (e.g. Laura's Apartment)</label>
-                <input class="form-control" id="inputEventLocation" placeholder="Enter location" type="description">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" id="create-event-button" class="btn btn-primary" data-dismiss="modal">Create Event</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-      <br>
-      <br>
       <button type="button" id="list-event-button" class="btn btn-info btn-lg">View My Events</button>
       <br>
       <br>
+      </div>
       <div id="events-list"></div>
       <!-- Edit Event Button
         <button type="button" class="btn btn-warning btn-lg"  data-toggle="modal" data-target="#editEventModal">Edit an Event</button>
@@ -268,6 +234,7 @@
       <div class="event" data-id={{id}}>
         <h3>{{description}}</h3>
         <p>Created by: {{created_by.name}} | Date: {{date}} | Time: {{time}} | Location: {{location}}</p>
+        <br>
         <ul>
           {{#each rsvps}}
             <li class="rsvp" data-id={{id}}>
@@ -276,13 +243,16 @@
             {{else}}
               {{profile_of_rsvp.name}} is bringing {{item}} <input type="checkbox"/>
             {{/if}}
+            {{#if belongs_to_current_user}}
+              <button type="button" class="btn btn-warning btn-xs">Edit RSVP</button>
+            {{/if}}
             </li>
           {{/each}}
         </ul>
+          <button type="button" class="btn btn-success btn-sm"  data-id={{id}} data-toggle="modal" data-target="#createRsvpModal">RSVP</button>
       </div>
     {{/each}}
   </script>
-
 
     <!-- End of My Events page -->
 
@@ -319,6 +289,35 @@
           </div>
         </div>
       </div>
+
+    <!-- Create RSVP Modal -->
+      <div class="modal fade" id="createRsvpModal" tabindex="-1" role="dialog" aria-labelledby="createRsvpModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="createRsvpModalLabel">My RSVP</h4>
+            </div>
+            <div class="modal-body">
+              <label class="radio-inline">
+                <input type="radio" name="optradio" id="confirmed-true" value="true">I'm coming!</label>
+              <label class="radio-inline">
+                <input type="radio" name="optradio" id="confirmed-false" value="false">I can't make it.</label>
+              <br>
+              <br>
+              <div class="form-group">
+                <label for="inputRsvpItem">I'm bringing...</label>
+                <input class="form-control" id="inputRsvpItem" placeholder="Enter the food, drink, or other item you'll bring" type="text">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" id="create-rsvp-button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

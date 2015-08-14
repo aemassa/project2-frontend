@@ -241,16 +241,16 @@ $(function() {
         .always();
     });
 
-    $("#rsvp-create").on("click", function(e) {
+    $("#create-rsvp-button").on("click", function(e) {
+      var $modal = $('#createRsvpModal');
       $.ajax(sa + "/rsvps", {
           contentType: "application/json",
           processData: false,
         data: JSON.stringify({
           rsvp: {
-              confirmed: $("#rsvp-confirmed").val(),
-              item: $("#rsvp-item").val(),
-              user_id: $("#rsvp-user-id").val(),
-              event_id: $("#rsvp-event-id").val()
+              confirmed: $('input[name="optradio"]:checked').val(),
+              item: $("#inputRsvpItem").val(),
+              event_id: $modal.data('id')
           }
         }),
         dataType: "json",
@@ -318,6 +318,15 @@ $(function() {
     })
     .always();
   });
+
+  $('#createRsvpModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var id = button.data('id') // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    modal.data('id', id);
+  })
 
 });
 

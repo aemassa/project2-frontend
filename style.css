@@ -6,8 +6,18 @@
   padding: 20px;
 }
 
-#eventpage{
+#eventpage {
   margin-top: 50px;
   padding:20px;
 }
+
+#eventpage h1 {
+  text-align: center;
+  font-size: 60px;
+}
+
+#event-buttons {
+  text-align: center;
+}
+
 
