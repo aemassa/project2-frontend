@@ -1,7 +1,7 @@
 // jQuery.ajax
 $(function() {
     "use strict";
-    var sa = '//localhost:3000';
+    var sa = 'https://gatherapi.herokuapp.com';
 
     // User Login/Sign-Up Requests
 
@@ -97,35 +97,6 @@ $(function() {
         .always();
     });
 
-    // $("#create-event-button").on("click", function(e) {
-    //     $.ajax(sa + "/events", {
-    //         contentType: "application/json",
-    //         processData: false,
-    //         data: JSON.stringify({
-    //           event: {
-    //               description: $("#inputEventDescription").val(),
-    //               date: $("#inputEventDate").val(),
-    //               time: $("#inputEventTime").val(),
-    //               location: $("#inputEventLocation").val(),
-    //           }
-    //         }),
-    //         dataType: "json",
-    //         method: "POST",
-    //         headers: {
-    //           Authorization: 'Token token=' + simpleStorage.get('token')
-    //         }
-    //     })
-    //     .done(function(data, textStatus, jqXHR) {
-    //         //$("#result").val(JSON.stringify(data));
-    //         console.log(JSON.stringify(data));
-    //     })
-    //     .fail(function(jqXHR, textStatus, errorThrown) {
-    //         //$("#result").val("create failed");
-    //         console.log('Failed to create event.')
-    //     })
-    //     .always();
-    // });
-
     $("#create-event-button").on("click", function(e) {
       $.ajax(sa + "/events", {
           contentType: "application/json",
@@ -145,101 +116,14 @@ $(function() {
         }
     })
     .done(function(data, textStatus, jqXHR) {
-      //$("#result").val(JSON.stringify(data));
       console.log(JSON.stringify(data));
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
-      //$("#result").val("create failed");
       alert("Failed to create event. Please try again.")
       console.log('Failed to create event.')
     })
     .always();
   });
-
-  //   $("#event-update").on("click", function(e) {
-  //     $.ajax(sa + "/events/" + $("#event-id").val(), {
-  //         contentType: "application/json",
-  //         processData: false,
-  //       data: JSON.stringify({
-  //         event: {
-  //             description: $("#event-description").val(),
-  //             date: $("#event-date").val(),
-  //             time: $("#event-time").val(),
-  //             location: $("#event-location").val()
-  //         }
-  //       }),
-  //       dataType: "json",
-  //       method: "PATCH",
-  //       headers: {
-  //         Authorization: 'Token token=' + simpleStorage.get('token')
-  //       }
-  //   })
-  //   .done(function(data, textStatus, jqXHR) {
-  //     //$("#result").val(JSON.stringify(data));
-  //     console.log('Event updated!')
-  //   })
-  //   .fail(function(jqXHR, textStatus, errorThrown) {
-  //     //$("#result").val("create failed");
-  //     console.log('Failed to update event.')
-  //   })
-  //   .always();
-  // });
-
-  //   $("#event-destroy").on("click", function(e) {
-  //     $.ajax(sa + "/events/" + $("#event-id").val(), {
-  //         contentType: "application/json",
-  //         processData: false,
-  //         method: "DELETE",
-  //         headers: {
-  //           Authorization: 'Token token=' + simpleStorage.get('token')
-  //       }
-  //   })
-  //   .done(function(data, textStatus, jqXHR) {
-  //     //$("#result").val(JSON.stringify(data));
-  //     console.log('Event destroyed!')
-  //   })
-  //   .fail(function(jqXHR, textStatus, errorThrown) {
-  //     //$("#result").val("create failed");
-  //     console.log('Failed to destroy event.')
-  //   })
-  //   .always();
-  // });
-
-// RSVP actions
-
-    // $("#list-all-rsvps").on("click", function(e) {
-    //     $.ajax(sa + "/rsvps", {
-    //         dataType: "json",
-    //         method: "GET",
-    //         headers: {
-    //           Authorization: 'Token token=' + simpleStorage.get('token')
-    //         }
-    //     })
-    //     .done(function(data, textStatus, jqXHR) {
-    //         console.log(JSON.stringify(data));
-    //     })
-    //     .fail(function(jqXHR, textStatus, errorThrown) {
-    //         console.log('Failed to list RSVPs.')
-    //     })
-    //     .always();
-    // });
-
-    // $("#rsvp-show").on("click", function(e) {
-    //     $.ajax(sa + "/rsvps/" + $('#rsvp-id').val(), {
-    //         dataType: "json",
-    //         method: "GET",
-    //         headers: {
-    //           Authorization: 'Token token=' + simpleStorage.get('token')
-    //         }
-    //     })
-    //     .done(function(data, textStatus, jqXHR) {
-    //         console.log(JSON.stringify(data));
-    //     })
-    //     .fail(function(jqXHR, textStatus, errorThrown) {
-    //         console.log('Failed to show RSVPs.')
-    //     })
-    //     .always();
-    // });
 
     $("#create-rsvp-button").on("click", function(e) {
       var $modal = $('#createRsvpModal');
@@ -261,11 +145,9 @@ $(function() {
     })
     .done(function(data, textStatus, jqXHR) {
       $('#rsvp-button').fadeOut('fast');
-      //$("#result").val(JSON.stringify(data));
       console.log(JSON.stringify(data));
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
-      //$("#result").val("create failed");
       console.log('Failed to RSVP.')
     })
     .always();
@@ -314,12 +196,10 @@ $(function() {
         }
     })
     .done(function(data, textStatus, jqXHR) {
-      //$("#result").val(JSON.stringify(data));
       alert("RSVP deleted!")
       console.log('RSVP destroyed!')
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
-      //$("#result").val("create failed");
       alert("Faield to delete RSVP.")
       console.log('Failed to destroy RSVP.')
     })
@@ -327,10 +207,8 @@ $(function() {
   });
 
   $('#createRsvpModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var id = button.data('id') // Extract info from data-* attributes
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var button = $(event.relatedTarget)
+    var id = button.data('id')
     var modal = $(this)
     modal.data('id', id);
   })
