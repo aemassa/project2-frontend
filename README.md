@@ -6,13 +6,13 @@ Link to front end:
 
 Repo: https://github.com/aemassa/project2-frontend
 
-App:
+App: http://aemassa.github.io/project2-frontend/
 
 Link to back end:
 
 Repo: https://github.com/aemassa/project2-api
 
-App:
+App: https://gatherapi.herokuapp.com
 
 ## Technologies Used
 
