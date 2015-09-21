@@ -1,9 +1,81 @@
+body, html, #homepage {
+  height: 100%;
+}
+
+@font-face {
+  font-family: RenReg;
+  src: url(ren_regular.ttf);
+}
+
+@font-face {
+  font-family: RenShadow;
+  src: url(ren_shadow.ttf);
+}
+
 .navbar.navbar-inverse {
   margin: 0;
 }
 
+.navbar-brand {
+  font-family: RenReg;
+  font-size: 25px;
+}
+
+#jumbotron {
+  background: url(gather.jpg) no-repeat center center;
+  background-size: cover;
+  height: 100%;
+/*  width: 100%;*/
+/*  background: url(gather.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 100%;*/
+}
+
+#get-started {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  padding: 500px 100px;
+}
+
+#get-started-button {
+  text-align: center;
+  padding: 15px;
+  text-transform: uppercase;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  background: #686868;
+  background: rgba(104, 104, 104, 0.5);
+  border: 2px solid #FFF;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-out;
+}
+
+#get-started-button:hover {
+  background-color: black;
+  color: #fff;
+}
+
 #intro {
-  padding: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 16px;
+  text-align: center;
+}
+
+#icons {
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
+}
+
+#icons p {
+  font-size: 16px;
 }
 
 #eventpage {

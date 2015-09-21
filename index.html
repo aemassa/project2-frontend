@@ -8,7 +8,7 @@
     <title>Gather</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
-    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <!-- Navbar -->
@@ -83,7 +83,7 @@
               <label for="exampleInputPassword2">Password</label>
               <input class="form-control" id="exampleInputPassword2" placeholder="Enter password" type="password">
             </div>
-            <p class="text-right">Don't have an account?<a href="#"> Sign up.</a></p>
+            <p class="text-right">Don't have an account? <a href="#" id="signUpModalLink" data-dismiss="modal">Sign up.</a></p>
           </div>
           <div class="modal-footer">
             <a href="#" data-dismiss="modal" class="btn">Close</a>
@@ -95,18 +95,19 @@
 
     <!-- Home Page Content-->
   <div id="homepage">
-    <!-- Cover Image -->
-      <div class="container-fluid">
-        <div class="row">
-          <img src="gather.jpg" class="img-responsive">
-        </div>
+
+      <!-- Jumbotron -->
+    <div id="jumbotron">
+      <div id="get-started">
+        <button type="button" id="get-started-button" data-toggle="modal" data-target="#logInModal">Get Started</button>
       </div>
+    </div>
 
       <!-- Intro Content -->
 
        <div class="container-fluid" id="intro">
           <h2>About Gather</h2>
-          <p>Gather makes it easy to plan and attend dinner parties and potluck events. Simplify your next gathering. Create a new event, RSVP to an event, and let your friends know what you're bringing to the table! </p>
+          <p>Gather makes it easy to plan and attend dinner parties and potluck events. <br>Simplify your next gathering. Create a new event, RSVP to an event, and let your friends know what you're bringing to the table! </p>
           <br>
       </div>
 
@@ -116,7 +117,7 @@
       <div class="container marketing">
 
         <!-- Three columns of text below the carousel -->
-        <div class="row">
+        <div class="row" id="icons">
           <div class="col-lg-4">
             <img class="img-circle" src="partyman.png" alt="Generic placeholder image" width="140" height="140">
             <h2>Track RSVPs</h2>
@@ -124,8 +125,8 @@
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4">
             <img class="img-circle" src="plate.png" alt="Generic placeholder image" width="140" height="140">
-            <h2>View Potluck Contributions</h2>
-            <p>Who's bringing what? Eliminate the mystery by viewing items that others are bringing and posting your contribution.</p>
+            <h2>View Contributions</h2>
+            <p>View items that others are bringing and post your contribution.</p>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4">
             <img class="img-circle" src="party.png" alt="Generic placeholder image" width="140" height="140">

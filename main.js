@@ -87,7 +87,7 @@ $(function() {
         .done(function(data, textStatus, jqXHR) {
             console.log(JSON.stringify(data));
             var templatingFunction = Handlebars.compile($('#events-list-template').html());
-            var html = templatingFunction({events: data.events });
+            var html = templatingFunction();
             $('#events-list').html(html);
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
@@ -225,7 +225,7 @@ $(function() {
     var id = button.closest('.rsvp').data('id')
     var modal = $(this)
     modal.data('id', id);
-  })
+  });
 
 });
 
