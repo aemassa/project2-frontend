@@ -24,16 +24,16 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#signUpModal" id="signUpLinkTopRight" data-toggle="modal" data-target="#signUpModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#logInModal" id="signUpLinkTopRight" data-toggle="modal" data-target="#logInModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <!-- The My Events link only appears when a user is signed in -->
             <li><a href="#" id="myEventsLinkTopRight" class="hidden"><span class="glyphicon glyphicon-cutlery"></span> My Events</a></li>
-            <li><a href="#logInModal" data-toggle="modal" data-traget="logInModal"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+            <li><a href="#logInModal" id="logInLinkTopRight" data-toggle="modal" data-traget="#logInModal"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
           </ul>
         </div>
       </div>
       </nav>
       <!-- Sign Up Modal -->
-    <div class="modal fade" id="signUpModal">
+<!--     <div class="modal fade" id="signUpModal">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -64,10 +64,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Log In Modal -->
-    <div class="modal fade" id="logInModal">
+<!--     <div class="modal fade" id="logInModal">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -91,7 +91,71 @@
           </div>
         </div>
       </div>
+    </div> -->
+
+    <!-- Login-Register Modal -->
+    <div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 id="model-label-header" class="modal-title" id="exampleModalLabel">Log In</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div id="login-box">
+                        <form>
+                          <div class="form-group">
+                            <label for="exampleInputEmail2">Email address</label>
+                            <input class="form-control" id="exampleInputEmail2" placeholder="Enter email address" type="email">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputPassword2">Password</label>
+                            <input class="form-control" id="exampleInputPassword2" placeholder="Enter password" type="password">
+                         </div>
+                         <p class="text-right">Don't have an account? <a href="javascript: showRegisterForm();"> Sign up.</a></p>
+                       </form>
+                    </div>
+
+                    <div id="register-box" style="display:none">
+                        <form>
+                          <div class="form-group">
+                            <label for="exampleInputName1">Name</label>
+                            <input class="form-control" id="exampleInputName1" placeholder="Enter name" type="name">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input class="form-control" id="exampleInputEmail1" placeholder="Enter email address" type="email">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input class="form-control" id="exampleInputPassword1" placeholder="Enter password" type="password">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPasswordConf1">Password Confirmation</label>
+                          <input class="form-control" id="exampleInputPasswordConf1" placeholder="Enter password confirmation" type="password">
+                        </div>
+                      </form>
+                      <p class="text-right">Already have an account? <a href="javascript: showLoginForm();"> Log in.</a></p>
+                    </div>
+                </div>
+
+                <div class="">
+                    <p id="result-login-message"></p>
+                </div>
+
+                <div class="modal-footer">
+                    <div id="modal-login-footer">
+                        <a href="#" id="log-in-button" data-dismiss="modal" class="btn btn-primary">Log In</a>
+                    </div>
+                    <div id="modal-register-footer" style="display:none">
+                        <a href="#" id="sign-up-button" data-dismiss="modal" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 
     <!-- Home Page Content-->
   <div id="homepage">

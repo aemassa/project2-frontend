@@ -25,21 +25,7 @@ body, html, #homepage {
   background: url(logo.jpg) no-repeat center center;
   background-size: cover;
   height: 100%;
-/*  width: 100%;*/
-/*  background: url(gather.jpg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  height: 100%;*/
 }
-
-/*#logo {
-  position: relative;
-  text-align: center;
-  font-family: RenShadow;
-  color: white;
-  font-size: 100px;
-}*/
 
 #get-started {
   position: relative;
@@ -111,7 +97,6 @@ body, html, #homepage {
 
 @media (max-width: 700px) {
   #logo {
-    /*  text-shadow: 2px 2px 5px #000000;*/
     font-size: 100px;
     padding-bottom: 20px;
   }

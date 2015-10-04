@@ -1,4 +1,33 @@
 // jQuery.ajax
+
+  function showLoginForm() {
+    $('#register-box').fadeOut('fast',function() {
+        $('#login-box').fadeIn('fast');
+        $('#modal-register-footer').fadeOut('fast',function() {
+          $('#model-label-header').text('Log In');
+          $('#modal-login-footer').fadeIn('fast');
+        });
+    });
+  };
+
+  function showRegisterForm() {
+    $('#login-box').fadeOut('fast',function() {
+        $('#register-box').fadeIn('fast');
+        $('#modal-login-footer').fadeOut('fast',function() {
+          $('#model-label-header').text('Sign Up');
+          $('#modal-register-footer').fadeIn('fast');
+        });
+    });
+  };
+
+  $('#signUpLinkTopRight').click(function(){
+    showRegisterForm();
+  });
+
+  $('#logInLinkTopRight').click(function(){
+    showLoginForm();
+  });
+
 $(function() {
     "use strict";
     var sa = 'https://gatherapi.herokuapp.com';
