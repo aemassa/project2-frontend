@@ -31,6 +31,7 @@
 $(function() {
     "use strict";
     var sa = 'https://gatherapi.herokuapp.com';
+    // var sa = 'https://localhost:3000';
 
     // User Login/Sign-Up Requests
 
@@ -56,7 +57,7 @@ $(function() {
             console.log(JSON.stringify(data));
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
-            alert("Registration failed. Please try again.")
+            alert("Registration failed. Please try again.");
             console.log('Registration failed.');
         })
         .always();
@@ -82,6 +83,7 @@ $(function() {
             //$('#homepage').hide();
             $('#myEventsLinkTopRight').removeClass("hidden");
             $('#signUpLinkTopRight').hide();
+            $('#logInLinkTopRight').hide();
             //$('#eventpage').show();
             console.log(data.token);
         })
@@ -116,7 +118,7 @@ $(function() {
         .done(function(data, textStatus, jqXHR) {
             console.log(JSON.stringify(data));
             var templatingFunction = Handlebars.compile($('#events-list-template').html());
-            var html = templatingFunction();
+            var html = templatingFunction({events: data.events});
             $('#events-list').html(html);
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
