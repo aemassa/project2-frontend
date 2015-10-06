@@ -107,7 +107,7 @@ $(function() {
 
     // Event CRUD actions
 
-    $("#list-event-button").on("click", function(e) {
+    var listEvents = function() {
         $.ajax(sa + "/events", {
             dataType: "json",
             method: "GET",
@@ -126,7 +126,12 @@ $(function() {
             console.log('Failed to list events.')
         })
         .always();
-    });
+    };
+
+  $("#myEventsLinkTopRight").on("click", function(e){
+    listEvents();
+  });
+
 
     $("#create-event-button").on("click", function(e) {
       $.ajax(sa + "/events", {
@@ -148,6 +153,7 @@ $(function() {
     })
     .done(function(data, textStatus, jqXHR) {
       console.log(JSON.stringify(data));
+      listEvents();
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
       alert("Failed to create event. Please try again.")
@@ -177,6 +183,7 @@ $(function() {
     .done(function(data, textStatus, jqXHR) {
       $('#rsvp-button').fadeOut('fast');
       console.log(JSON.stringify(data));
+      listEvents();
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
       console.log('Failed to RSVP.')
@@ -204,8 +211,9 @@ $(function() {
         }
     })
     .done(function(data, textStatus, jqXHR) {
-      alert("RSVP updated!")
-      console.log('RSVP updated!')
+      alert("RSVP updated!");
+      console.log('RSVP updated!');
+      listEvents();
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
       alert("Failed to update RSVP.")
@@ -227,8 +235,9 @@ $(function() {
         }
     })
     .done(function(data, textStatus, jqXHR) {
-      alert("RSVP deleted!")
-      console.log('RSVP destroyed!')
+      alert("RSVP deleted!");
+      console.log('RSVP destroyed!');
+      listEvents();
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
       alert("Faield to delete RSVP.")

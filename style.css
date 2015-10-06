@@ -84,20 +84,62 @@ body, html, #homepage {
 #eventpage {
   margin-top: 50px;
   padding:20px;
+  background: url(logo.jpg) no-repeat center;
+  background-size: cover;
 }
 
 #eventpage h1 {
   text-align: center;
-  font-size: 60px;
+  font-size: 100px;
+  font-family: RenShadow;
 }
 
 #event-buttons {
   text-align: center;
 }
 
+#eventpage-background-white{
+  background-color: white;
+  width: 990px;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+
 @media (max-width: 700px) {
   #logo {
     font-size: 100px;
     padding-bottom: 20px;
   }
+}
+
+.btn {
+    padding: 7px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 0;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+#create-event-button {
+  padding: 15px;
 }
