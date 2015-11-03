@@ -247,9 +247,7 @@ $(function() {
   });
 
     $("#event-destroy").on("click", function(e) {
-      var eventId = $("#event-id").val();
-      console.log(eventId);
-      $.ajax(sa + "/events/" + eventId, {
+      $.ajax(sa + "/events/" + $("#event-id").val(), {
           contentType: "application/json",
           processData: false,
           method: "DELETE",
