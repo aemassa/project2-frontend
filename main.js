@@ -249,7 +249,7 @@ $(function() {
     $("#event-destroy").on("click", function(e) {
       var eventId = $("#event-id").val();
       console.log(eventId);
-      $.ajax(sa + "/rsvps/" + eventId, {
+      $.ajax(sa + "/events/" + eventId, {
           contentType: "application/json",
           processData: false,
           method: "DELETE",
