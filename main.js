@@ -246,26 +246,26 @@ $(function() {
     .always();
   });
 
-    $("#event-destroy").on("click", function(e) {
-      $.ajax(sa + "/events/" + $("#event-id").val(), {
-          contentType: "application/json",
-          processData: false,
-          method: "DELETE",
-          headers: {
-            Authorization: 'Token token=' + simpleStorage.get('token')
-        }
-    })
-    .done(function(data, textStatus, jqXHR) {
-      alert("Event deleted!");
-      console.log('Event destroyed!');
-      listEvents();
-    })
-    .fail(function(jqXHR, textStatus, errorThrown) {
-      alert("Faield to delete event.")
-      console.log('Failed to destroy event.')
-    })
-    .always();
-  });
+  //   $("#event-destroy").on("click", function(e) {
+  //     $.ajax(sa + "/events/" + $("#event-id").val(), {
+  //         contentType: "application/json",
+  //         processData: false,
+  //         method: "DELETE",
+  //         headers: {
+  //           Authorization: 'Token token=' + simpleStorage.get('token')
+  //       }
+  //   })
+  //   .done(function(data, textStatus, jqXHR) {
+  //     alert("Event deleted!");
+  //     console.log('Event destroyed!');
+  //     listEvents();
+  //   })
+  //   .fail(function(jqXHR, textStatus, errorThrown) {
+  //     alert("Faield to delete event.")
+  //     console.log('Failed to destroy event.')
+  //   })
+  //   .always();
+  // });
 
   $('#createRsvpModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget)
